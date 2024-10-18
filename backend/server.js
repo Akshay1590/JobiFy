@@ -4,10 +4,12 @@ const mongoose = require("mongoose");
 const passportConfig = require("./lib/passportConfig");
 const cors = require("cors");
 const fs = require("fs");
+const dotenv= require("dotenv").config();
 
 // MongoDB
+const MONGODB_URI = process.env.MONGODB_URI;
 mongoose
-  .connect("mongodb://localhost:27017/jobPortal", {
+  .connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
